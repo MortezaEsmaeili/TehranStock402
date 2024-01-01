@@ -40,7 +40,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(195, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Version 1.1.0";
+            this.label1.Text = "Version 1.1.1";
             // 
             // button1
             // 
@@ -63,7 +63,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAbout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAbout";
+            this.Text = "درباره نرم‌افزار";
             this.ResumeLayout(false);
             this.PerformLayout();
 

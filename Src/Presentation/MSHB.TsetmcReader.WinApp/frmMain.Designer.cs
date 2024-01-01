@@ -49,14 +49,13 @@ namespace MSHB.TsetmcReader.WinApp
             this.horizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.CloseAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmClock = new System.Windows.Forms.Timer(this.components);
-            this.notifyIconManage = new System.Windows.Forms.NotifyIcon(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lbStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.tmServiceChecker = new System.Windows.Forms.Timer(this.components);
             this.openExcelFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -133,19 +132,19 @@ namespace MSHB.TsetmcReader.WinApp
             // removeDataBaseToolStripMenuItem
             // 
             this.removeDataBaseToolStripMenuItem.Name = "removeDataBaseToolStripMenuItem";
-            this.removeDataBaseToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.removeDataBaseToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             // 
             // loadExcelToolStripMenuItem
             // 
             this.loadExcelToolStripMenuItem.Name = "loadExcelToolStripMenuItem";
-            this.loadExcelToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
-            this.loadExcelToolStripMenuItem.Text = "Load Excel";
+            this.loadExcelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.loadExcelToolStripMenuItem.Text = "بورس تهران";
             this.loadExcelToolStripMenuItem.Click += new System.EventHandler(this.loadExcelToolStripMenuItem_Click_1);
             // 
             // loadFormToolStripMenuItem
             // 
             this.loadFormToolStripMenuItem.Name = "loadFormToolStripMenuItem";
-            this.loadFormToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.loadFormToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.loadFormToolStripMenuItem.Text = "Live Form";
             this.loadFormToolStripMenuItem.Visible = false;
             this.loadFormToolStripMenuItem.Click += new System.EventHandler(this.loadFormToolStripMenuItem_Click);
@@ -153,7 +152,7 @@ namespace MSHB.TsetmcReader.WinApp
             // historyFormToolStripMenuItem
             // 
             this.historyFormToolStripMenuItem.Name = "historyFormToolStripMenuItem";
-            this.historyFormToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.historyFormToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             // 
             // WinsStateToolStripMenuItem
             // 
@@ -170,48 +169,56 @@ namespace MSHB.TsetmcReader.WinApp
             // cascateToolStripMenuItem
             // 
             this.cascateToolStripMenuItem.Name = "cascateToolStripMenuItem";
-            this.cascateToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cascateToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.cascateToolStripMenuItem.Text = "Cascade";
             this.cascateToolStripMenuItem.Click += new System.EventHandler(this.cascateToolStripMenuItem_Click);
             // 
             // verticalToolStripMenuItem
             // 
             this.verticalToolStripMenuItem.Name = "verticalToolStripMenuItem";
-            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.verticalToolStripMenuItem.Text = "TileHorizontal";
             this.verticalToolStripMenuItem.Click += new System.EventHandler(this.verticalToolStripMenuItem_Click);
             // 
             // horizontalToolStripMenuItem
             // 
             this.horizontalToolStripMenuItem.Name = "horizontalToolStripMenuItem";
-            this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.horizontalToolStripMenuItem.Text = "TileVertical";
             this.horizontalToolStripMenuItem.Click += new System.EventHandler(this.horizontalToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(183, 6);
             // 
             // CloseAllToolStripMenuItem
             // 
             this.CloseAllToolStripMenuItem.Name = "CloseAllToolStripMenuItem";
-            this.CloseAllToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.CloseAllToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.CloseAllToolStripMenuItem.Text = "Close All ...";
             this.CloseAllToolStripMenuItem.Click += new System.EventHandler(this.CloseAllToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutSoftwareToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutSoftwareToolStripMenuItem
+            // 
+            this.aboutSoftwareToolStripMenuItem.Name = "aboutSoftwareToolStripMenuItem";
+            this.aboutSoftwareToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
+            this.aboutSoftwareToolStripMenuItem.Text = "About Software";
+            this.aboutSoftwareToolStripMenuItem.Click += new System.EventHandler(this.aboutSoftwareToolStripMenuItem_Click);
             // 
             // tmClock
             // 
             this.tmClock.Enabled = true;
             this.tmClock.Interval = 1000;
             this.tmClock.Tick += new System.EventHandler(this.tmClock_Tick);
-            // 
-            // notifyIconManage
-            // 
-            this.notifyIconManage.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconManage.Icon")));
-            this.notifyIconManage.Text = "مشاهده گر اطلاعات آنلاین بورس";
-            this.notifyIconManage.Visible = true;
-            this.notifyIconManage.Click += new System.EventHandler(this.notifyIconManage_Click);
             // 
             // statusStrip1
             // 
@@ -230,21 +237,6 @@ namespace MSHB.TsetmcReader.WinApp
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(59, 20);
             this.lbStatus.Text = "Ready...";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutSoftwareToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // aboutSoftwareToolStripMenuItem
-            // 
-            this.aboutSoftwareToolStripMenuItem.Name = "aboutSoftwareToolStripMenuItem";
-            this.aboutSoftwareToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.aboutSoftwareToolStripMenuItem.Text = "About Software";
-            this.aboutSoftwareToolStripMenuItem.Click += new System.EventHandler(this.aboutSoftwareToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -283,7 +275,6 @@ namespace MSHB.TsetmcReader.WinApp
         private System.Windows.Forms.ToolStripMenuItem tsmTime;
         private System.Windows.Forms.Timer tmClock;
         private System.Windows.Forms.ToolStripMenuItem tsmMinimize;
-        private System.Windows.Forms.NotifyIcon notifyIconManage;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lbStatus;
         private System.Windows.Forms.ToolStripMenuItem tsmOpenBrowser;

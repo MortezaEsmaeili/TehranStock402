@@ -34,8 +34,7 @@ namespace MSHB.TsetmcReader.WinApp
 
         private void notifyIconManage_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
-            notifyIconManage.Visible = false;
+            this.WindowState = FormWindowState.Maximized;
             this.ShowInTaskbar = true;
         }
 

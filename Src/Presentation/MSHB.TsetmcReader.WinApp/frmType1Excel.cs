@@ -217,8 +217,19 @@ namespace MSHB.TsetmcReader.WinApp
         {
             if (StockMA_Data.ContainsKey(key))
             {
+                if (resistance < 1)
+                    resistance = StockMA_Data[key].Price500;
+                if (support < 1)
+                    support = StockMA_Data[key].Price500;
+
                 StockMA_Data[key].Resistance = resistance;
                 StockMA_Data[key].Support= support;
+
+                if (StockData.ContainsKey(key))
+                {
+                    StockData[key].Resistance = resistance;
+                    StockData[key].Support = support;
+                }
             }
         }
 
@@ -356,10 +367,10 @@ namespace MSHB.TsetmcReader.WinApp
             dataGridView1["InsCode1", dgrow].Value = insCode;
             dataGridView1["InsName1", dgrow].Value = insName;
             dataGridView1["PE1", dgrow].Value = Math.Round(x.PE, 2);
-            dataGridView1["Price1001", dgrow].Value = Math.Round(x.Price100, 2);
+            dataGridView1["Price1001", dgrow].Value = Math.Round(x.Price100, 6);
             dataGridView1["PE1001", dgrow].Value = Math.Round(x.PE100, 2);
             dataGridView1["Earning1001", dgrow].Value = Math.Round(x.Earning100, 2);
-            dataGridView1["Price5001", dgrow].Value = Math.Round(x.Price500, 2);
+            dataGridView1["Price5001", dgrow].Value = Math.Round(x.Price500, 6);
             dataGridView1["PE5001", dgrow].Value = Math.Round(x.PE500, 2);
             dataGridView1["Earning5001", dgrow].Value = Math.Round(x.Earning500, 2);
             /*if (_instrumentIds.ContainsKey(insCode))
