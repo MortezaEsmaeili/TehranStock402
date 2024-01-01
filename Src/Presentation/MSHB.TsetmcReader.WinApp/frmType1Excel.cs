@@ -36,7 +36,7 @@ namespace MSHB.TsetmcReader.WinApp
 
         private void frmType1Excel_Load(object sender, EventArgs e)
         {
-            GetMainInsDataFromTSETMC();
+            //GetMainInsDataFromTSETMC();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -60,6 +60,7 @@ namespace MSHB.TsetmcReader.WinApp
             var response = await client.GetAsync(request);
             string responseMessage = response.Content;
             _instrumentIds.Clear();
+            await GetMainInsDataFromTSETMC();
             try
             {
                 var logs = responseMessage.Trim().Split(';').Select(x => x.Trim()).ToArray();
@@ -89,24 +90,26 @@ namespace MSHB.TsetmcReader.WinApp
             catch { }
             #endregion
 
-            GetMainInsDataFromTSETMC();
-
             FillDataGrid();
             timer1.Start();
         }
-        private async void GetMainInsDataFromTSETMC()
+        private async Task GetMainInsDataFromTSETMC()
         {
             try
             {
-                var client = new HttpClient();
-                string result = await client.GetStringAsync("https://cdn.tsetmc.com/api/MarketData/GetMarketOverview/1");
-                RootMarket marketOverview = JsonSerializer.Deserialize<RootMarket>(result);
-                if (!_instrumentIds.TryAdd("1", (decimal)marketOverview.marketOverview.indexLastValue))
-                    _instrumentIds.TryAdd("1", (decimal)marketOverview.marketOverview.indexLastValue);
+                for (int i = 1; i < 3; i++)
+                {
+                    var client = new HttpClient();
+                    string result = 
+                        await client.GetStringAsync($"https://cdn.tsetmc.com/api/MarketData/GetMarketOverview/{i}");
+                    RootMarket marketOverview = JsonSerializer.Deserialize<RootMarket>(result);
+                    if (!_instrumentIds.TryAdd($"{i}", (decimal)marketOverview.marketOverview.indexLastValue))
+                        _instrumentIds.TryAdd($"{i}", (decimal)marketOverview.marketOverview.indexLastValue);
+                }
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+          //      MessageBox.Show(ex.Message);
             }
 
         }
@@ -402,16 +405,16 @@ namespace MSHB.TsetmcReader.WinApp
                 {
                     if (price > 1)
                     {
-                        dg_InsData["Price", dgrow].Value = price;
+                        dataGridView1["Price1", dgrow].Value = price;
                         decimal earning = x.PE > 0 ? price / x.PE : -1;
-                        dg_InsData["Earning", dgrow].Value = Math.Round(earning, 2);
-                        dg_InsData["Price_Price100", dgrow].Value =
+                        dataGridView1["Earning1", dgrow].Value = Math.Round(earning, 2);
+                        dataGridView1["Price_Price1001", dgrow].Value =
                             Math.Round((((price - x.Price100) / price) * 100), 2);
-                        dg_InsData["Price_Price500", dgrow].Value =
+                        dataGridView1["Price_Price5001", dgrow].Value =
                             Math.Round(((price - x.Price500) / price) * 100, 2);
-                        dg_InsData["Earning_Earning100", dgrow].Value =
+                        dataGridView1["Earning_Earning1001", dgrow].Value =
                             Math.Round(((earning - x.Earning100) / earning) * 100, 2);
-                        dg_InsData["Earning_Earning500", dgrow].Value =
+                        dataGridView1["Earning_Earning5001", dgrow].Value =
                             Math.Round(((earning - x.Earning500) / earning) * 100, 2);
                     }
                 }
