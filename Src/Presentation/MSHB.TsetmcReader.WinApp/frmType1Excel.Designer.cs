@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
             this.openExcelFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.dg_InsData = new System.Windows.Forms.DataGridView();
             this.InsCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,6 +99,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.CH_SMS = new System.Windows.Forms.CheckBox();
+            this.TB_AlarmPercentage = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dg_InsData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -142,8 +144,8 @@
             this.dg_InsData.Name = "dg_InsData";
             this.dg_InsData.ReadOnly = true;
             this.dg_InsData.RowHeadersWidth = 51;
-            dataGridViewCellStyle72.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dg_InsData.RowsDefaultCellStyle = dataGridViewCellStyle72;
+            dataGridViewCellStyle56.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dg_InsData.RowsDefaultCellStyle = dataGridViewCellStyle56;
             this.dg_InsData.RowTemplate.Height = 24;
             this.dg_InsData.Size = new System.Drawing.Size(1090, 355);
             this.dg_InsData.TabIndex = 3;
@@ -152,8 +154,8 @@
             // 
             this.InsCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.InsCode.DataPropertyName = "InsCode";
-            dataGridViewCellStyle65.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InsCode.DefaultCellStyle = dataGridViewCellStyle65;
+            dataGridViewCellStyle49.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InsCode.DefaultCellStyle = dataGridViewCellStyle49;
             this.InsCode.HeaderText = "InsCode";
             this.InsCode.MinimumWidth = 100;
             this.InsCode.Name = "InsCode";
@@ -226,8 +228,8 @@
             // Price100
             // 
             this.Price100.DataPropertyName = "Price100";
-            dataGridViewCellStyle66.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Price100.DefaultCellStyle = dataGridViewCellStyle66;
+            dataGridViewCellStyle50.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Price100.DefaultCellStyle = dataGridViewCellStyle50;
             this.Price100.HeaderText = "Price100";
             this.Price100.MinimumWidth = 6;
             this.Price100.Name = "Price100";
@@ -238,8 +240,8 @@
             // 
             this.PE100.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.PE100.DataPropertyName = "PE100";
-            dataGridViewCellStyle67.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PE100.DefaultCellStyle = dataGridViewCellStyle67;
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PE100.DefaultCellStyle = dataGridViewCellStyle51;
             this.PE100.HeaderText = "PE100";
             this.PE100.MinimumWidth = 6;
             this.PE100.Name = "PE100";
@@ -250,8 +252,8 @@
             // 
             this.Earning100.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Earning100.DataPropertyName = "Earning100";
-            dataGridViewCellStyle68.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Earning100.DefaultCellStyle = dataGridViewCellStyle68;
+            dataGridViewCellStyle52.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Earning100.DefaultCellStyle = dataGridViewCellStyle52;
             this.Earning100.HeaderText = "Earning100";
             this.Earning100.MinimumWidth = 6;
             this.Earning100.Name = "Earning100";
@@ -262,8 +264,8 @@
             // 
             this.Price500.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Price500.DataPropertyName = "Price500";
-            dataGridViewCellStyle69.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Price500.DefaultCellStyle = dataGridViewCellStyle69;
+            dataGridViewCellStyle53.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Price500.DefaultCellStyle = dataGridViewCellStyle53;
             this.Price500.HeaderText = "Price500";
             this.Price500.MinimumWidth = 6;
             this.Price500.Name = "Price500";
@@ -273,8 +275,8 @@
             // PE500
             // 
             this.PE500.DataPropertyName = "PE500";
-            dataGridViewCellStyle70.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PE500.DefaultCellStyle = dataGridViewCellStyle70;
+            dataGridViewCellStyle54.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PE500.DefaultCellStyle = dataGridViewCellStyle54;
             this.PE500.HeaderText = "PE500";
             this.PE500.MinimumWidth = 6;
             this.PE500.Name = "PE500";
@@ -284,8 +286,8 @@
             // Earning500
             // 
             this.Earning500.DataPropertyName = "Earning500";
-            dataGridViewCellStyle71.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Earning500.DefaultCellStyle = dataGridViewCellStyle71;
+            dataGridViewCellStyle55.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Earning500.DefaultCellStyle = dataGridViewCellStyle55;
             this.Earning500.HeaderText = "Earning500";
             this.Earning500.MinimumWidth = 6;
             this.Earning500.Name = "Earning500";
@@ -423,8 +425,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle80.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle80;
+            dataGridViewCellStyle64.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle64;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1090, 102);
             this.dataGridView1.TabIndex = 10;
@@ -433,8 +435,8 @@
             // 
             this.InsCode1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.InsCode1.DataPropertyName = "InsCode1";
-            dataGridViewCellStyle73.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InsCode1.DefaultCellStyle = dataGridViewCellStyle73;
+            dataGridViewCellStyle57.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InsCode1.DefaultCellStyle = dataGridViewCellStyle57;
             this.InsCode1.HeaderText = "InsCode";
             this.InsCode1.MinimumWidth = 100;
             this.InsCode1.Name = "InsCode1";
@@ -507,8 +509,8 @@
             // Price1001
             // 
             this.Price1001.DataPropertyName = "Price1001";
-            dataGridViewCellStyle74.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Price1001.DefaultCellStyle = dataGridViewCellStyle74;
+            dataGridViewCellStyle58.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Price1001.DefaultCellStyle = dataGridViewCellStyle58;
             this.Price1001.HeaderText = "Price100";
             this.Price1001.MinimumWidth = 6;
             this.Price1001.Name = "Price1001";
@@ -519,8 +521,8 @@
             // 
             this.PE1001.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.PE1001.DataPropertyName = "PE1001";
-            dataGridViewCellStyle75.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PE1001.DefaultCellStyle = dataGridViewCellStyle75;
+            dataGridViewCellStyle59.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PE1001.DefaultCellStyle = dataGridViewCellStyle59;
             this.PE1001.HeaderText = "PE100";
             this.PE1001.MinimumWidth = 6;
             this.PE1001.Name = "PE1001";
@@ -531,8 +533,8 @@
             // 
             this.Earning1001.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Earning1001.DataPropertyName = "Earning1001";
-            dataGridViewCellStyle76.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Earning1001.DefaultCellStyle = dataGridViewCellStyle76;
+            dataGridViewCellStyle60.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Earning1001.DefaultCellStyle = dataGridViewCellStyle60;
             this.Earning1001.HeaderText = "Earning100";
             this.Earning1001.MinimumWidth = 6;
             this.Earning1001.Name = "Earning1001";
@@ -543,8 +545,8 @@
             // 
             this.Price5001.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Price5001.DataPropertyName = "Price5001";
-            dataGridViewCellStyle77.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Price5001.DefaultCellStyle = dataGridViewCellStyle77;
+            dataGridViewCellStyle61.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Price5001.DefaultCellStyle = dataGridViewCellStyle61;
             this.Price5001.HeaderText = "Price500";
             this.Price5001.MinimumWidth = 6;
             this.Price5001.Name = "Price5001";
@@ -554,8 +556,8 @@
             // PE5001
             // 
             this.PE5001.DataPropertyName = "PE5001";
-            dataGridViewCellStyle78.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PE5001.DefaultCellStyle = dataGridViewCellStyle78;
+            dataGridViewCellStyle62.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PE5001.DefaultCellStyle = dataGridViewCellStyle62;
             this.PE5001.HeaderText = "PE500";
             this.PE5001.MinimumWidth = 6;
             this.PE5001.Name = "PE5001";
@@ -565,8 +567,8 @@
             // Earning5001
             // 
             this.Earning5001.DataPropertyName = "Earning5001";
-            dataGridViewCellStyle79.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Earning5001.DefaultCellStyle = dataGridViewCellStyle79;
+            dataGridViewCellStyle63.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Earning5001.DefaultCellStyle = dataGridViewCellStyle63;
             this.Earning5001.HeaderText = "Earning500";
             this.Earning5001.MinimumWidth = 6;
             this.Earning5001.Name = "Earning5001";
@@ -603,6 +605,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.TB_AlarmPercentage);
+            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.CH_SMS);
             this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.label1);
@@ -622,7 +626,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.BackColor = System.Drawing.Color.Black;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.ForeColor = System.Drawing.SystemColors.Info;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 25;
@@ -643,12 +647,13 @@
             this.BT_ClearList.TabIndex = 10;
             this.BT_ClearList.Text = "پاک کردن لیست";
             this.BT_ClearList.UseVisualStyleBackColor = false;
+            this.BT_ClearList.Click += new System.EventHandler(this.BT_ClearList_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(55, 30);
+            this.label1.Location = new System.Drawing.Point(17, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(168, 25);
             this.label1.TabIndex = 12;
@@ -657,7 +662,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(245, 30);
+            this.textBox1.Location = new System.Drawing.Point(191, 27);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(226, 30);
             this.textBox1.TabIndex = 13;
@@ -665,12 +670,32 @@
             // CH_SMS
             // 
             this.CH_SMS.AutoSize = true;
-            this.CH_SMS.Location = new System.Drawing.Point(644, 35);
+            this.CH_SMS.Location = new System.Drawing.Point(436, 34);
             this.CH_SMS.Name = "CH_SMS";
             this.CH_SMS.Size = new System.Drawing.Size(90, 20);
             this.CH_SMS.TabIndex = 14;
             this.CH_SMS.Text = "ارسال پیامک";
             this.CH_SMS.UseVisualStyleBackColor = true;
+            // 
+            // TB_AlarmPercentage
+            // 
+            this.TB_AlarmPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_AlarmPercentage.Location = new System.Drawing.Point(662, 25);
+            this.TB_AlarmPercentage.Name = "TB_AlarmPercentage";
+            this.TB_AlarmPercentage.Size = new System.Drawing.Size(74, 30);
+            this.TB_AlarmPercentage.TabIndex = 16;
+            this.TB_AlarmPercentage.Text = "5";
+            this.TB_AlarmPercentage.TextChanged += new System.EventHandler(this.TB_AlarmPercentage_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(559, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 25);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "درصد آلارم:";
             // 
             // frmType1Excel
             // 
@@ -754,5 +779,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BT_ClearList;
         private System.Windows.Forms.CheckBox CH_SMS;
+        private System.Windows.Forms.TextBox TB_AlarmPercentage;
+        private System.Windows.Forms.Label label2;
     }
 }

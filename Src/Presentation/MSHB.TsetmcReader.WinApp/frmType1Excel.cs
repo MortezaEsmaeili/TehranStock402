@@ -23,6 +23,8 @@ namespace MSHB.TsetmcReader.WinApp
         public bool loadExcel { get; set; }
         private ConcurrentDictionary<string, decimal> _instrumentIds = new ConcurrentDictionary<string, decimal>();
 
+        private int iAlarmPercentage = 5;
+
         public frmType1Excel(bool _loadExcel)
         {
             loadExcel = _loadExcel;
@@ -352,15 +354,37 @@ namespace MSHB.TsetmcReader.WinApp
                             Math.Round(((earning - x.Earning100) / earning) * 100, 2);
                         dg_InsData["Earning_Earning500", dgrow].Value =
                             Math.Round(((earning - x.Earning500) / earning) * 100, 2);
-                        dg_InsData["Price_Support", dgrow].Value = 
-                            Math.Round(((price-x.Support)/price)*100, 2);
-                        dg_InsData["Price_Resistance", dgrow].Value =
-                            Math.Round(((x.Resistance-price)/price)*100, 2);
+                        decimal Price_Support = Math.Round(((price - x.Support) / price) * 100, 2);
+                        dg_InsData["Price_Support", dgrow].Value = Price_Support;
+                        decimal Price_Resistance = Math.Round(((x.Resistance - price) / price) * 100, 2);
+                        dg_InsData["Price_Resistance", dgrow].Value = Price_Resistance;
 
+                        if (Math.Abs(Price_Resistance) < iAlarmPercentage)
+                            Add2Alarm($"{insName}-{price}");
+                        if (Math.Abs(Price_Support) < iAlarmPercentage)
+                            Add2Alarm($"{insName}-{price}");
                     }
                 }
             }
         }
+
+        private void Add2Alarm(string alarm)
+        {
+            while(listBox1.Items.Count > 100)
+                listBox1.Items.RemoveAt(listBox1.Items.Count-1);
+
+            if (!listBox1.Items.Contains(alarm))
+            {
+                listBox1.Items.Insert(0, alarm);
+                SendSMS(alarm);
+            }
+        }
+
+        private void SendSMS(string alarm)
+        {
+            
+        }
+
         private void AddDataToGridView1(string insCode, string insName, MA_Data x)
         {
             int dgrow = dataGridView1.Rows.Add();
@@ -457,6 +481,22 @@ namespace MSHB.TsetmcReader.WinApp
             }
         }
 
-       
+        private void TB_AlarmPercentage_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                iAlarmPercentage = int.Parse(TB_AlarmPercentage.Text);
+            }
+            catch 
+            {
+                iAlarmPercentage = 5;
+                TB_AlarmPercentage.Text = "5";
+            }
+        }
+
+        private void BT_ClearList_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+        }
     }
 }
