@@ -8,7 +8,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Web.Caching;
 using System.Windows.Forms;
@@ -34,7 +36,7 @@ namespace MSHB.TsetmcReader.WinApp
 
         private void frmType1Excel_Load(object sender, EventArgs e)
         {
-            //GetMainInsDataFromTSETMC();
+            GetMainInsDataFromTSETMC();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -87,30 +89,26 @@ namespace MSHB.TsetmcReader.WinApp
             catch { }
             #endregion
 
-      //      GetMainInsDataFromTSETMC();
+            GetMainInsDataFromTSETMC();
+
             FillDataGrid();
             timer1.Start();
         }
         private async void GetMainInsDataFromTSETMC()
         {
-            #region Main Index
+            try
+            {
+                var client = new HttpClient();
+                string result = await client.GetStringAsync("https://cdn.tsetmc.com/api/MarketData/GetMarketOverview/1");
+                RootMarket marketOverview = JsonSerializer.Deserialize<RootMarket>(result);
+                if (!_instrumentIds.TryAdd("1", (decimal)marketOverview.marketOverview.indexLastValue))
+                    _instrumentIds.TryAdd("1", (decimal)marketOverview.marketOverview.indexLastValue);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-            var options = new RestClientOptions("https://cdn.tsetmc.com/api/MarketData/GetMarketOverview/2");
-            var request = new RestRequest();
-
-     //       request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("Accept", "application/json, text/plain, */*");
-            request.AddHeader("Accept-Encoding", "gzip, deflate, br");
-            request.AddHeader("Connection", "keep-alive");
-            request.AddHeader("Host", "cdn.tsetmc.com");
-            request.AddHeader("Origin", "https://www.tsetmc.com");
-            request.AddHeader("Dnt", "1");
-
-
-            var client = new RestClient(options);
-            var response = await client.GetAsync(request);
-            string responseMessage1 = response.Content;
-            #endregion
         }
         private void GetFilesPath()
         {
@@ -397,7 +395,7 @@ namespace MSHB.TsetmcReader.WinApp
             dataGridView1["Price5001", dgrow].Value = Math.Round(x.Price500, 6);
             dataGridView1["PE5001", dgrow].Value = Math.Round(x.PE500, 2);
             dataGridView1["Earning5001", dgrow].Value = Math.Round(x.Earning500, 2);
-            /*if (_instrumentIds.ContainsKey(insCode))
+            if (_instrumentIds.ContainsKey(insCode))
             {
                 decimal price = 0;
                 if (_instrumentIds.TryGetValue(insCode, out price))
@@ -417,7 +415,7 @@ namespace MSHB.TsetmcReader.WinApp
                             Math.Round(((earning - x.Earning500) / earning) * 100, 2);
                     }
                 }
-            }*/
+            }
         }
 
         private void LocateExcelFile_BT_Click(object sender, EventArgs e)
@@ -487,7 +485,7 @@ namespace MSHB.TsetmcReader.WinApp
             {
                 iAlarmPercentage = int.Parse(TB_AlarmPercentage.Text);
             }
-            catch 
+            catch
             {
                 iAlarmPercentage = 5;
                 TB_AlarmPercentage.Text = "5";
