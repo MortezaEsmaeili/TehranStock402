@@ -52,16 +52,17 @@ namespace MSHB.TsetmcReader.WinApp
         {
             timer1.Stop();
             #region Instrument Data
-            var options = new RestClientOptions("https://old.tsetmc.com/tsev2/data/MarketWatchInit.aspx?h=0&r=0");
-            var request = new RestRequest();
-
-            var client = new RestClient(options);
-            var response = await client.GetAsync(request);
-            string responseMessage = response.Content;
-            _instrumentIds.Clear();
-            await GetMainInsDataFromTSETMC();
             try
             {
+                var options = new RestClientOptions("https://old.tsetmc.com/tsev2/data/MarketWatchInit.aspx?h=0&r=0");
+                var request = new RestRequest();
+
+                var client = new RestClient(options);
+                var response = await client.GetAsync(request);
+                string responseMessage = response.Content;
+                _instrumentIds.Clear();
+                await GetMainInsDataFromTSETMC();
+
                 var logs = responseMessage.Trim().Split(';').Select(x => x.Trim()).ToArray();
                 if (logs != null && logs.Length > 0)
                 {
