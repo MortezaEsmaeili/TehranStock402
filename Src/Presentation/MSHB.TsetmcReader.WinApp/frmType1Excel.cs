@@ -36,7 +36,6 @@ namespace MSHB.TsetmcReader.WinApp
 
         private void frmType1Excel_Load(object sender, EventArgs e)
         {
-            //GetMainInsDataFromTSETMC();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -307,11 +306,17 @@ namespace MSHB.TsetmcReader.WinApp
                 {
                     string insCode = x.Key.Split('_')[1];
                     string insName = x.Key.Split('_')[0];
-
-                    if(insCode == "1" || insCode == "2")
-                        AddDataToGridView1(insCode, insName, x.Value);
-                    else
-                        AddDataToGrid(insCode, insName, x.Value);
+                    try
+                    {
+                        if (insCode == "1" || insCode == "2")
+                            AddDataToGridView1(insCode, insName, x.Value);
+                        else
+                            AddDataToGrid(insCode, insName, x.Value);
+                    }
+                    catch(Exception ex)
+                    {
+                        ex.ToString();
+                    }
                 });
                 
                 dataGridView1.ScrollBars = ScrollBars.Both;
@@ -351,10 +356,10 @@ namespace MSHB.TsetmcReader.WinApp
                             Math.Round((((price - x.Price100) / price) * 100), 2);
                         dg_InsData["Price_Price500", dgrow].Value =
                             Math.Round(((price - x.Price500) / price) * 100, 2);
-                        dg_InsData["Earning_Earning100", dgrow].Value =
-                            Math.Round(((earning - x.Earning100) / earning) * 100, 2);
-                        dg_InsData["Earning_Earning500", dgrow].Value =
-                            Math.Round(((earning - x.Earning500) / earning) * 100, 2);
+                        dg_InsData["PE_PE100", dgrow].Value =
+                            Math.Round(((x.PE - x.PE100) / x.PE) * 100, 2);
+                        dg_InsData["PE_PE500", dgrow].Value =
+                            Math.Round(((x.PE - x.PE500) / x.PE) * 100, 2);
                         decimal Price_Support = Math.Round(((price - x.Support) / price) * 100, 2);
                         dg_InsData["Price_Support", dgrow].Value = Price_Support;
                         decimal Price_Resistance = Math.Round(((x.Resistance - price) / price) * 100, 2);
@@ -412,10 +417,10 @@ namespace MSHB.TsetmcReader.WinApp
                             Math.Round((((price - x.Price100) / price) * 100), 2);
                         dataGridView1["Price_Price5001", dgrow].Value =
                             Math.Round(((price - x.Price500) / price) * 100, 2);
-                        dataGridView1["Earning_Earning1001", dgrow].Value =
-                            Math.Round(((earning - x.Earning100) / earning) * 100, 2);
-                        dataGridView1["Earning_Earning5001", dgrow].Value =
-                            Math.Round(((earning - x.Earning500) / earning) * 100, 2);
+                        dataGridView1["PE_PE1001", dgrow].Value =
+                            Math.Round(((x.PE - x.PE100) / x.PE) * 100, 2);
+                        dataGridView1["PE_PE5001", dgrow].Value =
+                            Math.Round(((x.PE - x.PE500) / x.PE) * 100, 2);
                     }
                 }
             }
