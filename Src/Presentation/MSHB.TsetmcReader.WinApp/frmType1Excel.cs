@@ -22,7 +22,7 @@ namespace MSHB.TsetmcReader.WinApp
     public partial class frmType1Excel : Form
     {
         public Dictionary<string, InstrumentStockData> StockData = new Dictionary<string, InstrumentStockData>();
-        public Dictionary<string, MA_Data> StockMA_Data=new Dictionary<string, MA_Data>();
+        //public Dictionary<string, MA_Data> StockData=new Dictionary<string, MA_Data>();
         public bool loadExcel { get; set; }
         private ConcurrentDictionary<string, decimal> _instrumentIds = new ConcurrentDictionary<string, decimal>();
 
@@ -143,34 +143,29 @@ namespace MSHB.TsetmcReader.WinApp
         }
         void CalculateMA()
         {
-            StockMA_Data = new Dictionary<string, MA_Data>();
-
+            
             foreach (var insData in StockData)
             {
                 try
                 {
-                    MA_Data ma = GetMA( insData.Value);
-                    StockMA_Data.Add(insData.Key, ma);
+                    GetMA( insData.Value);
                 }
                 catch { }
             }
 
         }
 
-        private static MA_Data GetMA( InstrumentStockData insStockData)
+        private static void GetMA( InstrumentStockData insStockData)
         {
             var insData = insStockData.PricePEList;
-            var ma= new MA_Data()
-            {
-                PE = insData[0].PE,
-                PE100 = (insData.Where(x => x.PE > 0).Take(100).Sum(x => x.PE)) / 100,
-                Price100 = (insData.Where(x => x.Price > 0).Take(100).Sum(x => x.Price)) / 100,
-                Earning100 = (insData.Where(x => x.Earning > 0).Take(100).Sum(x => x.Earning)) / 100,
-                PE500 = (insData.Where(x => x.PE > 0).Take(500).Sum(x => x.PE)) / 500,
-                Price500 = (insData.Where(x => x.Price > 0).Take(500).Sum(x => x.Price)) / 500,
-                Earning500 = (insData.Where(x => x.Earning > 0).Take(500).Sum(x => x.Earning)) / 500             
-            };
-            return ma;
+
+            insStockData.PE = insData[0].PE;
+            insStockData.PE100 = (insData.Where(x => x.PE > 0).Take(100).Sum(x => x.PE)) / 100;
+            insStockData.Price100 = (insData.Where(x => x.Price > 0).Take(100).Sum(x => x.Price)) / 100;
+            insStockData.Earning100 = (insData.Where(x => x.Earning > 0).Take(100).Sum(x => x.Earning)) / 100;
+            insStockData.PE500 = (insData.Where(x => x.PE > 0).Take(500).Sum(x => x.PE)) / 500;
+            insStockData.Price500 = (insData.Where(x => x.Price > 0).Take(500).Sum(x => x.Price)) / 500;
+            insStockData.Earning500 = (insData.Where(x => x.Earning > 0).Take(500).Sum(x => x.Earning)) / 500;       
         }
         
         private void Load_Supp_Res_FromExcel(string filePath)
@@ -184,7 +179,7 @@ namespace MSHB.TsetmcReader.WinApp
             int counter = 0;
             foreach (var row in dataTable.ToArray())
             {
-                if (counter < 3 || row == null || row[1] == null)
+                if (counter < 2 || row == null || row[1] == null)
                 {
                     counter++;
                     continue;
@@ -199,20 +194,20 @@ namespace MSHB.TsetmcReader.WinApp
                         StockData[key].Resistance = resistance;
                         StockData[key].Support = support;
 
-                        if (StockMA_Data.ContainsKey(key))
-                        {
+                        //if (StockData.ContainsKey(key))
+                        //{
 
-                            StockData[key].Support = (StockMA_Data[key].Price500 > support) ?
-                                StockMA_Data[key].Price500 : support;
+                        //    StockData[key].Support = (StockData[key].Price500 > support) ?
+                        //        StockData[key].Price500 : support;
 
-                            StockData[key].Resistance = (StockMA_Data[key].Price500 < resistance) ?
-                                StockMA_Data[key].Price500 : resistance;
-                        }
+                        //    StockData[key].Resistance = (StockData[key].Price500 < resistance) ?
+                        //        StockData[key].Price500 : resistance;
+                        //}
                     }
-                    else
-                    {
-                        StockData.Add(key, new InstrumentStockData { Resistance = resistance, Support = support });
-                    }
+                    //else
+                    //{
+                    //    StockData.Add(key, new InstrumentStockData { Resistance = resistance, Support = support });
+                    //}
                     UpdateResistanceSupport(key, StockData[key].Support, StockData[key].Resistance);
                 }
                 catch { }
@@ -221,15 +216,15 @@ namespace MSHB.TsetmcReader.WinApp
 
         private void UpdateResistanceSupport(string key, decimal support, decimal resistance)
         {
-            if (StockMA_Data.ContainsKey(key))
+            if (StockData.ContainsKey(key))
             {
                 if (resistance < 1)
-                    resistance = StockMA_Data[key].Price500;
+                    resistance = StockData[key].Price500;
                 if (support < 1)
-                    support = StockMA_Data[key].Price500;
+                    support = StockData[key].Price500;
 
-                StockMA_Data[key].Resistance = resistance;
-                StockMA_Data[key].Support= support;
+                StockData[key].Resistance = resistance;
+                StockData[key].Support= support;
 
                 if (StockData.ContainsKey(key))
                 {
@@ -313,7 +308,7 @@ namespace MSHB.TsetmcReader.WinApp
                 dg_InsData.Rows.Clear();
                 dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.Rows.Clear();
-                StockMA_Data.ToList().ForEach(x =>
+                StockData.ToList().ForEach(x =>
                 {
                     string insCode = x.Key;
                     string insName= StockData[insCode].insName;
@@ -339,7 +334,7 @@ namespace MSHB.TsetmcReader.WinApp
             }
         }
 
-        private void AddDataToGrid( string insCode, string insName,  MA_Data x)
+        private void AddDataToGrid( string insCode, string insName,  InstrumentStockData x)
         {
             int dgrow = dg_InsData.Rows.Add();
             dg_InsData["InsCode", dgrow].Value = insCode;
@@ -377,22 +372,36 @@ namespace MSHB.TsetmcReader.WinApp
                         dg_InsData["Price_Resistance", dgrow].Value = Price_Resistance;
 
                         if (Math.Abs(Price_Resistance) < iAlarmPercentage)
-                            Add2Alarm($"{insName}-{price}");
+                            Add2ResistanceAlarm($"{insName}");
                         if (Math.Abs(Price_Support) < iAlarmPercentage)
-                            Add2Alarm($"{insName}-{price}");
+                            Add2SupportAlarm($"{insName}");
                     }
                 }
             }
         }
 
-        private void Add2Alarm(string alarm)
+        private void Add2SupportAlarm(string alarm)
         {
-            while(listBox1.Items.Count > 100)
-                listBox1.Items.RemoveAt(listBox1.Items.Count-1);
+            alarm = $"نماد:  {alarm} \t Hour:{DateTime.Now.Hour}";
+            while (LB_SupportAlarm.Items.Count > 100)
+                LB_SupportAlarm.Items.RemoveAt(LB_SupportAlarm.Items.Count - 1);
 
-            if (!listBox1.Items.Contains(alarm))
+            if (!LB_SupportAlarm.Items.Contains(alarm))
             {
-                listBox1.Items.Insert(0, alarm);
+                LB_SupportAlarm.Items.Insert(0, alarm);
+                SendSMS(alarm);
+            }
+        }
+
+        private void Add2ResistanceAlarm(string alarm)
+        {
+            alarm = $"نماد:  {alarm} \t Hour:{DateTime.Now.Hour}";
+            while (LB_ResistanceAlarm.Items.Count > 100)
+                LB_ResistanceAlarm.Items.RemoveAt(LB_ResistanceAlarm.Items.Count-1);
+
+            if (!LB_ResistanceAlarm.Items.Contains(alarm))
+            {
+                LB_ResistanceAlarm.Items.Insert(0, alarm);
                 SendSMS(alarm);
             }
         }
@@ -402,7 +411,7 @@ namespace MSHB.TsetmcReader.WinApp
             
         }
 
-        private void AddDataToGridView1(string insCode, string insName, MA_Data x)
+        private void AddDataToGridView1(string insCode, string insName, InstrumentStockData x)
         {
             int dgrow = dataGridView1.Rows.Add();
             dataGridView1["InsCode1", dgrow].Value = insCode;
@@ -463,9 +472,8 @@ namespace MSHB.TsetmcReader.WinApp
                 {
                     try
                     {
-                        MA_Data ma = GetMA(indexData.Value);
-                        StockMA_Data[key]=ma;
-                        AddDataToGridView1(insCode, insName, ma);
+                        GetMA(indexData.Value);
+                        AddDataToGridView1(insCode, insName, indexData.Value);
                     }
                     catch { }
                 }
@@ -487,9 +495,8 @@ namespace MSHB.TsetmcReader.WinApp
                 {
                     try
                     {
-                        MA_Data ma = GetMA(indexData.Value);
-                        StockMA_Data[key] = ma;
-                        AddDataToGridView1(insCode, insName, ma);
+                        GetMA(indexData.Value);
+                        AddDataToGridView1(insCode, insName, indexData.Value);
                     }
                     catch { }
                 }
@@ -520,7 +527,8 @@ namespace MSHB.TsetmcReader.WinApp
 
         private void BT_ClearList_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+            LB_SupportAlarm.Items.Clear();
+            LB_ResistanceAlarm.Items.Clear();
         }
     }
 }

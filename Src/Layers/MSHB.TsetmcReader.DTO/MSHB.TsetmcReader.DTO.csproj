@@ -78,7 +78,6 @@
     <Compile Include="DataModel\Instrument10DaysHistoryDto.cs" />
     <Compile Include="DataModel\InstrumentHistoryDto.cs" />
     <Compile Include="DataModel\MarketOverView.cs" />
-    <Compile Include="DataModel\MA_Data.cs" />
     <Compile Include="DataModel\Price_PE.cs" />
     <Compile Include="DataModel\TsetmcDto.cs" />
     <Compile Include="DataModel\Type1StockDto.cs" />

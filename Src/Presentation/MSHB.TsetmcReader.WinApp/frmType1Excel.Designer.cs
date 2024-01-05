@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
             this.openExcelFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.dg_InsData = new System.Windows.Forms.DataGridView();
             this.InsCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,16 +76,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.LocateSuppResi_BT = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.TB_AlarmPercentage = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CH_SMS = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BT_ClearList = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.InsCode1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InsName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,11 +95,27 @@
             this.Price5001 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PE5001 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Earning5001 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.TB_AlarmPercentage = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CH_SMS = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BT_ClearList = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.LB_SupportAlarm = new System.Windows.Forms.ListBox();
+            this.LB_ResistanceAlarm = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dg_InsData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dg_InsData
@@ -148,8 +154,8 @@
             this.dg_InsData.Name = "dg_InsData";
             this.dg_InsData.ReadOnly = true;
             this.dg_InsData.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dg_InsData.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dg_InsData.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dg_InsData.RowTemplate.Height = 24;
             this.dg_InsData.Size = new System.Drawing.Size(1090, 374);
             this.dg_InsData.TabIndex = 3;
@@ -158,8 +164,8 @@
             // 
             this.InsCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.InsCode.DataPropertyName = "InsCode";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InsCode.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InsCode.DefaultCellStyle = dataGridViewCellStyle17;
             this.InsCode.HeaderText = "InsCode";
             this.InsCode.MinimumWidth = 100;
             this.InsCode.Name = "InsCode";
@@ -232,8 +238,8 @@
             // Price100
             // 
             this.Price100.DataPropertyName = "Price100";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Price100.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Price100.DefaultCellStyle = dataGridViewCellStyle18;
             this.Price100.HeaderText = "Price100";
             this.Price100.MinimumWidth = 6;
             this.Price100.Name = "Price100";
@@ -244,8 +250,8 @@
             // 
             this.PE100.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.PE100.DataPropertyName = "PE100";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PE100.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PE100.DefaultCellStyle = dataGridViewCellStyle19;
             this.PE100.HeaderText = "PE100";
             this.PE100.MinimumWidth = 6;
             this.PE100.Name = "PE100";
@@ -256,8 +262,8 @@
             // 
             this.Earning100.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Earning100.DataPropertyName = "Earning100";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Earning100.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Earning100.DefaultCellStyle = dataGridViewCellStyle20;
             this.Earning100.HeaderText = "Earning100";
             this.Earning100.MinimumWidth = 6;
             this.Earning100.Name = "Earning100";
@@ -268,8 +274,8 @@
             // 
             this.Price500.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Price500.DataPropertyName = "Price500";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Price500.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Price500.DefaultCellStyle = dataGridViewCellStyle21;
             this.Price500.HeaderText = "Price500";
             this.Price500.MinimumWidth = 6;
             this.Price500.Name = "Price500";
@@ -279,8 +285,8 @@
             // PE500
             // 
             this.PE500.DataPropertyName = "PE500";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PE500.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PE500.DefaultCellStyle = dataGridViewCellStyle22;
             this.PE500.HeaderText = "PE500";
             this.PE500.MinimumWidth = 6;
             this.PE500.Name = "PE500";
@@ -290,8 +296,8 @@
             // Earning500
             // 
             this.Earning500.DataPropertyName = "Earning500";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Earning500.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Earning500.DefaultCellStyle = dataGridViewCellStyle23;
             this.Earning500.HeaderText = "Earning500";
             this.Earning500.MinimumWidth = 6;
             this.Earning500.Name = "Earning500";
@@ -433,140 +439,18 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle32;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1090, 102);
             this.dataGridView1.TabIndex = 10;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1104, 573);
-            this.tabControl1.TabIndex = 11;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.LocateSuppResi_BT);
-            this.tabPage1.Controls.Add(this.Freez_CHB);
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.dg_InsData);
-            this.tabPage1.Controls.Add(this.LocateSupRes_BT);
-            this.tabPage1.Controls.Add(this.LocateExcelFile_BT);
-            this.tabPage1.Controls.Add(this.LocateMainIndex_BT);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1096, 544);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "اطلاعات";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.TB_AlarmPercentage);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.CH_SMS);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.BT_ClearList);
-            this.tabPage2.Controls.Add(this.listBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1096, 544);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "آلارم";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // TB_AlarmPercentage
-            // 
-            this.TB_AlarmPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_AlarmPercentage.Location = new System.Drawing.Point(662, 25);
-            this.TB_AlarmPercentage.Name = "TB_AlarmPercentage";
-            this.TB_AlarmPercentage.Size = new System.Drawing.Size(74, 30);
-            this.TB_AlarmPercentage.TabIndex = 16;
-            this.TB_AlarmPercentage.Text = "5";
-            this.TB_AlarmPercentage.TextChanged += new System.EventHandler(this.TB_AlarmPercentage_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(559, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 25);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "درصد آلارم:";
-            // 
-            // CH_SMS
-            // 
-            this.CH_SMS.AutoSize = true;
-            this.CH_SMS.Location = new System.Drawing.Point(436, 27);
-            this.CH_SMS.Name = "CH_SMS";
-            this.CH_SMS.Size = new System.Drawing.Size(90, 20);
-            this.CH_SMS.TabIndex = 14;
-            this.CH_SMS.Text = "ارسال پیامک";
-            this.CH_SMS.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(191, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(226, 30);
-            this.textBox1.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 25);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Phone Number: ";
-            // 
-            // BT_ClearList
-            // 
-            this.BT_ClearList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BT_ClearList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.BT_ClearList.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_ClearList.Location = new System.Drawing.Point(894, 23);
-            this.BT_ClearList.Name = "BT_ClearList";
-            this.BT_ClearList.Size = new System.Drawing.Size(170, 32);
-            this.BT_ClearList.TabIndex = 10;
-            this.BT_ClearList.Text = "پاک کردن لیست";
-            this.BT_ClearList.UseVisualStyleBackColor = false;
-            this.BT_ClearList.Click += new System.EventHandler(this.BT_ClearList_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox1.BackColor = System.Drawing.Color.Black;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.ForeColor = System.Drawing.SystemColors.Info;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(-4, 83);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.listBox1.Size = new System.Drawing.Size(1100, 454);
-            this.listBox1.TabIndex = 0;
             // 
             // InsCode1
             // 
             this.InsCode1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.InsCode1.DataPropertyName = "InsCode1";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InsCode1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InsCode1.DefaultCellStyle = dataGridViewCellStyle25;
             this.InsCode1.HeaderText = "InsCode";
             this.InsCode1.MinimumWidth = 100;
             this.InsCode1.Name = "InsCode1";
@@ -671,8 +555,8 @@
             // Price1001
             // 
             this.Price1001.DataPropertyName = "Price1001";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Price1001.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Price1001.DefaultCellStyle = dataGridViewCellStyle26;
             this.Price1001.HeaderText = "Price100";
             this.Price1001.MinimumWidth = 6;
             this.Price1001.Name = "Price1001";
@@ -683,8 +567,8 @@
             // 
             this.PE1001.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.PE1001.DataPropertyName = "PE1001";
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PE1001.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PE1001.DefaultCellStyle = dataGridViewCellStyle27;
             this.PE1001.HeaderText = "PE100";
             this.PE1001.MinimumWidth = 6;
             this.PE1001.Name = "PE1001";
@@ -695,8 +579,8 @@
             // 
             this.Earning1001.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Earning1001.DataPropertyName = "Earning1001";
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Earning1001.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Earning1001.DefaultCellStyle = dataGridViewCellStyle28;
             this.Earning1001.HeaderText = "Earning100";
             this.Earning1001.MinimumWidth = 6;
             this.Earning1001.Name = "Earning1001";
@@ -707,8 +591,8 @@
             // 
             this.Price5001.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Price5001.DataPropertyName = "Price5001";
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Price5001.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Price5001.DefaultCellStyle = dataGridViewCellStyle29;
             this.Price5001.HeaderText = "Price500";
             this.Price5001.MinimumWidth = 6;
             this.Price5001.Name = "Price5001";
@@ -718,8 +602,8 @@
             // PE5001
             // 
             this.PE5001.DataPropertyName = "PE5001";
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PE5001.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PE5001.DefaultCellStyle = dataGridViewCellStyle30;
             this.PE5001.HeaderText = "PE500";
             this.PE5001.MinimumWidth = 6;
             this.PE5001.Name = "PE5001";
@@ -729,13 +613,166 @@
             // Earning5001
             // 
             this.Earning5001.DataPropertyName = "Earning5001";
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Earning5001.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Earning5001.DefaultCellStyle = dataGridViewCellStyle31;
             this.Earning5001.HeaderText = "Earning500";
             this.Earning5001.MinimumWidth = 6;
             this.Earning5001.Name = "Earning5001";
             this.Earning5001.ReadOnly = true;
             this.Earning5001.Width = 103;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1104, 573);
+            this.tabControl1.TabIndex = 11;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.LocateSuppResi_BT);
+            this.tabPage1.Controls.Add(this.Freez_CHB);
+            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.dg_InsData);
+            this.tabPage1.Controls.Add(this.LocateSupRes_BT);
+            this.tabPage1.Controls.Add(this.LocateExcelFile_BT);
+            this.tabPage1.Controls.Add(this.LocateMainIndex_BT);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1096, 544);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "اطلاعات";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.splitContainer1);
+            this.tabPage2.Controls.Add(this.TB_AlarmPercentage);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.CH_SMS);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.BT_ClearList);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1096, 544);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "آلارم";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // TB_AlarmPercentage
+            // 
+            this.TB_AlarmPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_AlarmPercentage.Location = new System.Drawing.Point(662, 25);
+            this.TB_AlarmPercentage.Name = "TB_AlarmPercentage";
+            this.TB_AlarmPercentage.Size = new System.Drawing.Size(74, 30);
+            this.TB_AlarmPercentage.TabIndex = 16;
+            this.TB_AlarmPercentage.Text = "5";
+            this.TB_AlarmPercentage.TextChanged += new System.EventHandler(this.TB_AlarmPercentage_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(559, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 25);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "درصد آلارم:";
+            // 
+            // CH_SMS
+            // 
+            this.CH_SMS.AutoSize = true;
+            this.CH_SMS.Location = new System.Drawing.Point(436, 27);
+            this.CH_SMS.Name = "CH_SMS";
+            this.CH_SMS.Size = new System.Drawing.Size(90, 20);
+            this.CH_SMS.TabIndex = 14;
+            this.CH_SMS.Text = "ارسال پیامک";
+            this.CH_SMS.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(191, 27);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(226, 30);
+            this.textBox1.TabIndex = 13;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 25);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Phone Number: ";
+            // 
+            // BT_ClearList
+            // 
+            this.BT_ClearList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BT_ClearList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BT_ClearList.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_ClearList.Location = new System.Drawing.Point(894, 23);
+            this.BT_ClearList.Name = "BT_ClearList";
+            this.BT_ClearList.Size = new System.Drawing.Size(170, 32);
+            this.BT_ClearList.TabIndex = 10;
+            this.BT_ClearList.Text = "پاک کردن لیست";
+            this.BT_ClearList.UseVisualStyleBackColor = false;
+            this.BT_ClearList.Click += new System.EventHandler(this.BT_ClearList_Click);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(0, 72);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.LB_ResistanceAlarm);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.LB_SupportAlarm);
+            this.splitContainer1.Size = new System.Drawing.Size(1096, 469);
+            this.splitContainer1.SplitterDistance = 540;
+            this.splitContainer1.TabIndex = 17;
+            // 
+            // LB_SupportAlarm
+            // 
+            this.LB_SupportAlarm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.LB_SupportAlarm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LB_SupportAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_SupportAlarm.ForeColor = System.Drawing.SystemColors.Info;
+            this.LB_SupportAlarm.FormattingEnabled = true;
+            this.LB_SupportAlarm.ItemHeight = 25;
+            this.LB_SupportAlarm.Location = new System.Drawing.Point(0, 0);
+            this.LB_SupportAlarm.Name = "LB_SupportAlarm";
+            this.LB_SupportAlarm.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LB_SupportAlarm.Size = new System.Drawing.Size(552, 469);
+            this.LB_SupportAlarm.TabIndex = 1;
+            // 
+            // LB_ResistanceAlarm
+            // 
+            this.LB_ResistanceAlarm.BackColor = System.Drawing.Color.Maroon;
+            this.LB_ResistanceAlarm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LB_ResistanceAlarm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_ResistanceAlarm.ForeColor = System.Drawing.SystemColors.Info;
+            this.LB_ResistanceAlarm.FormattingEnabled = true;
+            this.LB_ResistanceAlarm.ItemHeight = 25;
+            this.LB_ResistanceAlarm.Location = new System.Drawing.Point(0, 0);
+            this.LB_ResistanceAlarm.Name = "LB_ResistanceAlarm";
+            this.LB_ResistanceAlarm.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LB_ResistanceAlarm.Size = new System.Drawing.Size(540, 469);
+            this.LB_ResistanceAlarm.TabIndex = 1;
             // 
             // frmType1Excel
             // 
@@ -758,6 +795,10 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -780,7 +821,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BT_ClearList;
@@ -825,5 +865,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price5001;
         private System.Windows.Forms.DataGridViewTextBoxColumn PE5001;
         private System.Windows.Forms.DataGridViewTextBoxColumn Earning5001;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ListBox LB_ResistanceAlarm;
+        private System.Windows.Forms.ListBox LB_SupportAlarm;
     }
 }
