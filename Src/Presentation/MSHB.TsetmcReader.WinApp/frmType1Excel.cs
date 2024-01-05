@@ -6,6 +6,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -169,14 +170,6 @@ namespace MSHB.TsetmcReader.WinApp
                 Price500 = (insData.Where(x => x.Price > 0).Take(500).Sum(x => x.Price)) / 500,
                 Earning500 = (insData.Where(x => x.Earning > 0).Take(500).Sum(x => x.Earning)) / 500             
             };
-            if (insStockData.Support > 0)
-                ma.Support = (insStockData.Support > ma.Price500) ? ma.Price500 : insStockData.Support;
-            else 
-                ma.Support = ma.Price500;
-            if(ma.Resistance > 0)
-                ma.Resistance = (insStockData.Resistance < ma.Price500) ? ma.Price500 : insStockData.Resistance;
-            else
-                ma.Resistance = ma.Price500;
             return ma;
         }
         
@@ -185,32 +178,42 @@ namespace MSHB.TsetmcReader.WinApp
             var dataTable = ExelReader.ReadExcelFileDOM(filePath);
             if (dataTable == null)
             {
-                //         MessageBox.Show("Please close the Excel file or Excel file is empty!");
+                MessageBox.Show("Please close the Excel file or Excel file is empty!");
                 return;
             }
             int counter = 0;
             foreach (var row in dataTable.ToArray())
             {
-                if (counter < 8 || row == null || row[1] == null)
+                if (counter < 3 || row == null || row[1] == null)
                 {
                     counter++;
                     continue;
                 }
                 try
                 {
-                    string key = row[4].ToString();
+                    string key = row[1].ToString();
                     decimal.TryParse(row[2], out decimal support);
                     decimal.TryParse(row[3], out decimal resistance);
                     if (StockData.ContainsKey(key))
                     {
                         StockData[key].Resistance = resistance;
                         StockData[key].Support = support;
+
+                        if (StockMA_Data.ContainsKey(key))
+                        {
+
+                            StockData[key].Support = (StockMA_Data[key].Price500 > support) ?
+                                StockMA_Data[key].Price500 : support;
+
+                            StockData[key].Resistance = (StockMA_Data[key].Price500 < resistance) ?
+                                StockMA_Data[key].Price500 : resistance;
+                        }
                     }
                     else
                     {
-                        StockData.Add(key, new InstrumentStockData { Resistance = resistance, Support=support });
+                        StockData.Add(key, new InstrumentStockData { Resistance = resistance, Support = support });
                     }
-                    UpdateResistanceSupport(key, support, resistance);
+                    UpdateResistanceSupport(key, StockData[key].Support, StockData[key].Resistance);
                 }
                 catch { }
             }
@@ -238,23 +241,30 @@ namespace MSHB.TsetmcReader.WinApp
 
         private void loadFromExcel(string filePath, string insCode = null)
         {
+            string insName = "";
             var dataTable = ExelReader.ReadExcelFileDOM(filePath);
             if (dataTable == null)
             {
-                //         MessageBox.Show("Please close the Excel file or Excel file is empty!");
+                MessageBox.Show("Please close the Excel file or Excel file is empty!");
                 return;
             }
             if (string.IsNullOrEmpty(insCode))
             {
                 FileInfo info = new FileInfo(filePath);
-                insCode = info.Name.Split('.')[0];
+                string temp = info.Name.Split('.')[0];
+                insCode = temp.Split('_')[1];
+                insName = temp.Split('_')[0];
             }
             else
                 insCode = insCode.Trim();
             if (StockData.ContainsKey(insCode) == true)
                 StockData.Remove(insCode);
             StockData.Add(insCode, new InstrumentStockData());
-
+            if (insCode == "1")
+                insName = "شاخص کل";
+            if (insCode == "2")
+                insName = "شاخص فرابورس";
+            StockData[insCode].insName = insName;
             int counter = 0;
 
             foreach (var row in dataTable.ToArray())
@@ -305,8 +315,8 @@ namespace MSHB.TsetmcReader.WinApp
                 dataGridView1.Rows.Clear();
                 StockMA_Data.ToList().ForEach(x =>
                 {
-                    string insCode = x.Key.Split('_')[1];
-                    string insName = x.Key.Split('_')[0];
+                    string insCode = x.Key;
+                    string insName= StockData[insCode].insName;
                     try
                     {
                         if (insCode == "1" || insCode == "2")
@@ -404,6 +414,8 @@ namespace MSHB.TsetmcReader.WinApp
             dataGridView1["Price5001", dgrow].Value = Math.Round(x.Price500, 6);
             dataGridView1["PE5001", dgrow].Value = Math.Round(x.PE500, 2);
             dataGridView1["Earning5001", dgrow].Value = Math.Round(x.Earning500, 2);
+            dataGridView1["Resistance1", dgrow].Value = Math.Round(x.Resistance, 6);
+            dataGridView1["Support1", dgrow].Value = Math.Round(x.Support, 6);
             if (_instrumentIds.ContainsKey(insCode))
             {
                 decimal price = 0;
@@ -422,6 +434,11 @@ namespace MSHB.TsetmcReader.WinApp
                             Math.Round(((x.PE - x.PE100) / x.PE) * 100, 2);
                         dataGridView1["PE_PE5001", dgrow].Value =
                             Math.Round(((x.PE - x.PE500) / x.PE) * 100, 2);
+                        dataGridView1["Value_Support", dgrow].Value =
+                            Math.Round(((price - x.Support) / price) * 100, 2);
+                        dataGridView1["Value_Resistance", dgrow].Value =
+                            Math.Round(((x.Resistance - price) / x.Resistance) * 100, 2);
+
                     }
                 }
             }
@@ -439,7 +456,7 @@ namespace MSHB.TsetmcReader.WinApp
                 var filePath = openFileDialog1.FileName;
                 string insCode = "1";
                 string insName = "شاخص کل";
-                string key = insName + "_" + insCode;
+                string key = insCode;
                 loadFromExcel(filePath, key);
                 var indexData = StockData.FirstOrDefault(x => x.Key == key);
                 if (indexData.Key==key)
@@ -463,7 +480,7 @@ namespace MSHB.TsetmcReader.WinApp
                 var filePath = openFileDialog1.FileName;
                 string insCode = "2";
                 string insName = "شاخص کل فرا بورس";
-                string key = insName + "_" + insCode;
+                string key = insCode;
                 loadFromExcel(filePath, key);
                 var indexData = StockData.FirstOrDefault(x => x.Key == key);
                 if (indexData.Key == key)

@@ -14,5 +14,6 @@ namespace MSHB.TsetmcReader.DTO.DataModel
         public List<Price_PE> PricePEList { get; set; }
         public decimal Support { get; set; }
         public decimal Resistance { get; set; }
+        public string insName {  get; set; }
     }
 }
