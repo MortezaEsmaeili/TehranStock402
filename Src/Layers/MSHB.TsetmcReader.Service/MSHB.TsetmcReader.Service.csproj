@@ -192,6 +192,7 @@
     <Compile Include="Contract\ILogger.cs" />
     <Compile Include="Helper\ExelReader.cs" />
     <Compile Include="Helper\Extensions.cs" />
+    <Compile Include="Helper\TelegramHelper.cs" />
     <Compile Include="MapperConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
