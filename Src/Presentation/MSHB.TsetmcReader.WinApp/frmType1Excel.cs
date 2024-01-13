@@ -1,6 +1,7 @@
 ﻿using MSHB.TsetmcReader.DTO.DataModel;
 using MSHB.TsetmcReader.Service.Helper;
 using MSHB.TsetmcReader.WinApp.Helper;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Concurrent;
@@ -12,15 +13,23 @@ using System.Linq;
 using System.Net.Http;
 using System.Reflection;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Caching;
 using System.Windows.Forms;
+using Telegram.Bot;
 
 
 namespace MSHB.TsetmcReader.WinApp
 {
+
     public partial class frmType1Excel : Form
     {
+        #region Telegram
+        private TelegramBotClient botClient = new TelegramBotClient("6136125871:AAGl0M8eKfGJfpRVYq8j5K3MYJqcsdD7ETo");
+        
+        
+        #endregion
         public Dictionary<string, InstrumentStockData> StockData = new Dictionary<string, InstrumentStockData>();
         //public Dictionary<string, MA_Data> StockData=new Dictionary<string, MA_Data>();
         public bool loadExcel { get; set; }
@@ -43,7 +52,7 @@ namespace MSHB.TsetmcReader.WinApp
         {
             timer1.Stop();
             //          GetFilesPath();
-            timer1 = new Timer();
+            timer1 = new System.Windows.Forms.Timer();
             timer1.Interval = 4000;
             timer1.Tick += GetDataFromTSETMC;
             timer1.Start();
@@ -529,6 +538,15 @@ namespace MSHB.TsetmcReader.WinApp
         {
             LB_SupportAlarm.Items.Clear();
             LB_ResistanceAlarm.Items.Clear();
+        }
+
+        private void BT_SEND2Telegram_ClickAsync(object sender, EventArgs e)
+        {
+            var token = new CancellationTokenSource();
+            var cancelationToken = token.Token;
+            string message = TB_Message.Text;
+            botClient.SendTextMessageAsync("-4151963742", message);
+            TB_Message.Text = "";
         }
     }
 }
