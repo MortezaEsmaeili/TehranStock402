@@ -22,14 +22,14 @@ namespace MSHB.TsetmcReader.WinApp.Practical_Forms
         public const string AyandehCoin = "62180931969029505";
 
 
-        public static ConcurrentDictionary<string, decimal> _coins = new ConcurrentDictionary<string, decimal>();
+        public  ConcurrentDictionary<string, decimal> _coins = new ConcurrentDictionary<string, decimal>();
 
         public frmCoins()
         {
             _coins.TryAdd(MellatCoin, 0);
-            _coins.TryAdd(SaderatCoin, 0);
-            _coins.TryAdd(SamanCoin, 0);
+            _coins.TryAdd(SaderatCoin, 0);            
             _coins.TryAdd(AyandehCoin, 0);
+            _coins.TryAdd(SamanCoin, 0);
             _coins.TryAdd(RefahCoin, 0);
 
             InitializeComponent();
@@ -65,7 +65,7 @@ namespace MSHB.TsetmcReader.WinApp.Practical_Forms
             {
                 UpdateCoinPrices();
                 dataGridView1.Rows.Clear();
-                var coinInsIds = _coins.Keys.ToList();
+                var coinInsIds = _coins.Keys.OrderBy(x=>x).ToList();
                 for (int i = 0; i < _coins.Count; i++)
                 {
                     int rowID = dataGridView1.Rows.Add();
@@ -85,9 +85,9 @@ namespace MSHB.TsetmcReader.WinApp.Practical_Forms
             }
         }
 
-        public decimal GetDiffPrice(string coin1, string coin2)
+        public string GetDiffPrice(string coin1, string coin2)
         {
-            return _coins[coin1] - _coins[coin2];
+            return (_coins[coin1] - _coins[coin2]).ToString("N0");
         }
 
         private string GetPersianName(string v)

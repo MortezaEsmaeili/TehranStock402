@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.Coin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mellat0211 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Saderat0310 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ayandeh0411 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Saman0412 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Refah0312 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mellat0211 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Saman0412 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ayandeh0411 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Saderat0310 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -54,18 +54,18 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Coin,
+            this.Refah0312,
             this.Mellat0211,
-            this.Saderat0310,
-            this.Ayandeh0411,
             this.Saman0412,
-            this.Refah0312});
+            this.Ayandeh0411,
+            this.Saderat0310});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(613, 520);
             this.dataGridView1.TabIndex = 4;
@@ -92,6 +92,15 @@
             this.Coin.ReadOnly = true;
             this.Coin.Width = 75;
             // 
+            // Refah0312
+            // 
+            this.Refah0312.DataPropertyName = "Refah0312";
+            this.Refah0312.HeaderText = "رفاه۰۳۱۲";
+            this.Refah0312.MinimumWidth = 6;
+            this.Refah0312.Name = "Refah0312";
+            this.Refah0312.ReadOnly = true;
+            this.Refah0312.Width = 87;
+            // 
             // Mellat0211
             // 
             this.Mellat0211.DataPropertyName = "Mellat0211";
@@ -100,24 +109,6 @@
             this.Mellat0211.Name = "Mellat0211";
             this.Mellat0211.ReadOnly = true;
             this.Mellat0211.Width = 85;
-            // 
-            // Saderat0310
-            // 
-            this.Saderat0310.DataPropertyName = "Saderat0310";
-            this.Saderat0310.HeaderText = "صادرات ۰۳۱۰";
-            this.Saderat0310.MinimumWidth = 6;
-            this.Saderat0310.Name = "Saderat0310";
-            this.Saderat0310.ReadOnly = true;
-            this.Saderat0310.Width = 105;
-            // 
-            // Ayandeh0411
-            // 
-            this.Ayandeh0411.DataPropertyName = "Ayandeh0411";
-            this.Ayandeh0411.HeaderText = "آینده ۰۴۱۱";
-            this.Ayandeh0411.MinimumWidth = 6;
-            this.Ayandeh0411.Name = "Ayandeh0411";
-            this.Ayandeh0411.ReadOnly = true;
-            this.Ayandeh0411.Width = 91;
             // 
             // Saman0412
             // 
@@ -128,14 +119,23 @@
             this.Saman0412.ReadOnly = true;
             this.Saman0412.Width = 99;
             // 
-            // Refah0312
+            // Ayandeh0411
             // 
-            this.Refah0312.DataPropertyName = "Refah0312";
-            this.Refah0312.HeaderText = "رفاه۰۳۱۲";
-            this.Refah0312.MinimumWidth = 6;
-            this.Refah0312.Name = "Refah0312";
-            this.Refah0312.ReadOnly = true;
-            this.Refah0312.Width = 87;
+            this.Ayandeh0411.DataPropertyName = "Ayandeh0411";
+            this.Ayandeh0411.HeaderText = "آینده ۰۴۱۱";
+            this.Ayandeh0411.MinimumWidth = 6;
+            this.Ayandeh0411.Name = "Ayandeh0411";
+            this.Ayandeh0411.ReadOnly = true;
+            this.Ayandeh0411.Width = 91;
+            // 
+            // Saderat0310
+            // 
+            this.Saderat0310.DataPropertyName = "Saderat0310";
+            this.Saderat0310.HeaderText = "صادرات ۰۳۱۰";
+            this.Saderat0310.MinimumWidth = 6;
+            this.Saderat0310.Name = "Saderat0310";
+            this.Saderat0310.ReadOnly = true;
+            this.Saderat0310.Width = 105;
             // 
             // frmCoins
             // 
@@ -159,10 +159,10 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Coin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mellat0211;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Saderat0310;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ayandeh0411;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Saman0412;
         private System.Windows.Forms.DataGridViewTextBoxColumn Refah0312;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mellat0211;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Saman0412;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ayandeh0411;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Saderat0310;
     }
 }
