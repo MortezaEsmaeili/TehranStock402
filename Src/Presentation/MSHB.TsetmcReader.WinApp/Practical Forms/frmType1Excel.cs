@@ -43,7 +43,16 @@ namespace MSHB.TsetmcReader.WinApp
             loadExcel = _loadExcel;
 
             InitializeComponent();
-            TSETMC_Manager.DataReadyEvent += FillDataGrid;
+            TSETMC_Manager.DataReadyEvent += OnDataDeady;
+        }
+        private void OnDataDeady()
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action(() => { FillDataGrid(); }));
+            }
+            else
+                FillDataGrid();
         }
 
         private void frmType1Excel_Load(object sender, EventArgs e)

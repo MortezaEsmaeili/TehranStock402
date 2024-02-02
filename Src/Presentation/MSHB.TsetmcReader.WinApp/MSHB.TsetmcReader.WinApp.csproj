@@ -224,8 +224,6 @@
     <Compile Include="Helper\ConfigReaderHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StaticMember\CoinDTO.cs" />
-    <Compile Include="StaticMember\CoinManager.cs" />
     <Compile Include="StaticMember\TSETMC_Manager.cs" />
     <EmbeddedResource Include="frmInsCode.resx">
       <DependentUpon>frmInsCode.cs</DependentUpon>
