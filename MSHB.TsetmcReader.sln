@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSHB.TsetmcReader.Service",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSHB.TsetmcReader.DTO", "Src\Layers\MSHB.TsetmcReader.DTO\MSHB.TsetmcReader.DTO.csproj", "{2E600B1E-5510-4AA6-AECC-E545EAE52A0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Tester", "Telegram.Tester\Telegram.Tester.csproj", "{DAFEAD2E-0036-4861-859B-BA54EB06A10F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telegram.Tester", "Telegram.Tester\Telegram.Tester.csproj", "{DAFEAD2E-0036-4861-859B-BA54EB06A10F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

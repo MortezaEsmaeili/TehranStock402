@@ -209,15 +209,24 @@
     <Compile Include="General Forms\frmPleaseWait.Designer.cs">
       <DependentUpon>frmPleaseWait.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmType1Excel.cs">
+    <Compile Include="Practical Forms\frmCoins.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmType1Excel.Designer.cs">
+    <Compile Include="Practical Forms\frmCoins.Designer.cs">
+      <DependentUpon>frmCoins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Practical Forms\frmType1Excel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Practical Forms\frmType1Excel.Designer.cs">
       <DependentUpon>frmType1Excel.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\ConfigReaderHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticMember\CoinDTO.cs" />
+    <Compile Include="StaticMember\CoinManager.cs" />
+    <Compile Include="StaticMember\TSETMC_Manager.cs" />
     <EmbeddedResource Include="frmInsCode.resx">
       <DependentUpon>frmInsCode.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,7 +239,10 @@
     <EmbeddedResource Include="General Forms\frmPleaseWait.resx">
       <DependentUpon>frmPleaseWait.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmType1Excel.resx">
+    <EmbeddedResource Include="Practical Forms\frmCoins.resx">
+      <DependentUpon>frmCoins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Practical Forms\frmType1Excel.resx">
       <DependentUpon>frmType1Excel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

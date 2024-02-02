@@ -1,6 +1,7 @@
 ﻿using MSHB.TsetmcReader.DTO.DataModel;
 using MSHB.TsetmcReader.Service.Helper;
 using MSHB.TsetmcReader.WinApp.Helper;
+using MSHB.TsetmcReader.WinApp.StaticMember;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
@@ -33,7 +34,7 @@ namespace MSHB.TsetmcReader.WinApp
         public Dictionary<string, InstrumentStockData> StockData = new Dictionary<string, InstrumentStockData>();
         //public Dictionary<string, MA_Data> StockData=new Dictionary<string, MA_Data>();
         public bool loadExcel { get; set; }
-        private ConcurrentDictionary<string, decimal> _instrumentIds = new ConcurrentDictionary<string, decimal>();
+        //private ConcurrentDictionary<string, decimal> _instrumentIds = new ConcurrentDictionary<string, decimal>();
 
         private int iAlarmPercentage = 5;
 
@@ -42,87 +43,88 @@ namespace MSHB.TsetmcReader.WinApp
             loadExcel = _loadExcel;
 
             InitializeComponent();
+            TSETMC_Manager.DataReadyEvent += FillDataGrid;
         }
 
         private void frmType1Excel_Load(object sender, EventArgs e)
         {
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            timer1.Stop();
-            //          GetFilesPath();
-            timer1 = new System.Windows.Forms.Timer();
-            timer1.Interval = 4000;
-            timer1.Tick += GetDataFromTSETMC;
-            timer1.Start();
-        }
+        //private void timer1_Tick(object sender, EventArgs e)
+        //{
+        //    timer1.Stop();
+        //    //          GetFilesPath();
+        //    timer1 = new System.Windows.Forms.Timer();
+        //    timer1.Interval = 4000;
+        //    timer1.Tick += GetDataFromTSETMC;
+        //    timer1.Start();
+        //}
 
-        private async void GetDataFromTSETMC(object sender, EventArgs e)
-        {
-            timer1.Stop();
-            #region Instrument Data
-            try
-            {
-                var options = new RestClientOptions("https://old.tsetmc.com/tsev2/data/MarketWatchInit.aspx?h=0&r=0");
-                var request = new RestRequest();
+        //private async void GetDataFromTSETMC(object sender, EventArgs e)
+        //{
+        //    timer1.Stop();
+        //    #region Instrument Data
+        //    try
+        //    {
+        //        var options = new RestClientOptions("https://old.tsetmc.com/tsev2/data/MarketWatchInit.aspx?h=0&r=0");
+        //        var request = new RestRequest();
 
-                var client = new RestClient(options);
-                var response = await client.GetAsync(request);
-                string responseMessage = response.Content;
-                _instrumentIds.Clear();
-                await GetMainInsDataFromTSETMC();
+        //        var client = new RestClient(options);
+        //        var response = await client.GetAsync(request);
+        //        string responseMessage = response.Content;
+        //        _instrumentIds.Clear();
+        //        await GetMainInsDataFromTSETMC();
 
-                var logs = responseMessage.Trim().Split(';').Select(x => x.Trim()).ToArray();
-                if (logs != null && logs.Length > 0)
-                {
+        //        var logs = responseMessage.Trim().Split(';').Select(x => x.Trim()).ToArray();
+        //        if (logs != null && logs.Length > 0)
+        //        {
 
-                    Parallel.ForEach(logs, item =>
-                    //       foreach (var item in logs)
-                    {
-                        var data = item.Replace("'", "").Trim().Split(',').Select(x => x.Trim()).ToArray();
-                        int dataLength = data.Length;
-                        if (dataLength > 20)
-                        {
-                            try
-                            {
-                                if (!decimal.TryParse(data[6], out decimal quantity))
-                                { quantity = 0; }
-                                if (!_instrumentIds.TryAdd(data[0], quantity))
-                                    _instrumentIds.TryAdd(data[0], quantity);
-                            }
-                            catch { }
+        //            Parallel.ForEach(logs, item =>
+        //            //       foreach (var item in logs)
+        //            {
+        //                var data = item.Replace("'", "").Trim().Split(',').Select(x => x.Trim()).ToArray();
+        //                int dataLength = data.Length;
+        //                if (dataLength > 20)
+        //                {
+        //                    try
+        //                    {
+        //                        if (!decimal.TryParse(data[6], out decimal quantity))
+        //                        { quantity = 0; }
+        //                        if (!_instrumentIds.TryAdd(data[0], quantity))
+        //                            _instrumentIds.TryAdd(data[0], quantity);
+        //                    }
+        //                    catch { }
 
-                        }
-                    });
-                }
-            }
-            catch { }
-            #endregion
+        //                }
+        //            });
+        //        }
+        //    }
+        //    catch { }
+        //    #endregion
 
-            FillDataGrid();
-            timer1.Start();
-        }
-        private async Task GetMainInsDataFromTSETMC()
-        {
-            try
-            {
-                for (int i = 1; i < 3; i++)
-                {
-                    var client = new HttpClient();
-                    string result = 
-                        await client.GetStringAsync($"https://cdn.tsetmc.com/api/MarketData/GetMarketOverview/{i}");
-                    RootMarket marketOverview = JsonSerializer.Deserialize<RootMarket>(result);
-                    if (!_instrumentIds.TryAdd($"{i}", (decimal)marketOverview.marketOverview.indexLastValue))
-                        _instrumentIds.TryAdd($"{i}", (decimal)marketOverview.marketOverview.indexLastValue);
-                }
-            }
-            catch(Exception ex)
-            {
-          //      MessageBox.Show(ex.Message);
-            }
+        //    FillDataGrid();
+        //    timer1.Start();
+        //}
+        //private async Task GetMainInsDataFromTSETMC()
+        //{
+        //    try
+        //    {
+        //        for (int i = 1; i < 3; i++)
+        //        {
+        //            var client = new HttpClient();
+        //            string result = 
+        //                await client.GetStringAsync($"https://cdn.tsetmc.com/api/MarketData/GetMarketOverview/{i}");
+        //            RootMarket marketOverview = JsonSerializer.Deserialize<RootMarket>(result);
+        //            if (!_instrumentIds.TryAdd($"{i}", (decimal)marketOverview.marketOverview.indexLastValue))
+        //                _instrumentIds.TryAdd($"{i}", (decimal)marketOverview.marketOverview.indexLastValue);
+        //        }
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //  //      MessageBox.Show(ex.Message);
+        //    }
 
-        }
+        //}
         private void GetFilesPath()
         {
             folderBrowserDialog1.RootFolder = Environment.SpecialFolder.Desktop;
@@ -134,7 +136,7 @@ namespace MSHB.TsetmcReader.WinApp
                 return;
             timer1.Stop();
             var waitForm = new frmPleaseWait();
-            waitForm.Show(this);
+     //esi       waitForm.Show(this);
             try
             {
                 string selectedFolder = folderBrowserDialog1.SelectedPath;
@@ -357,10 +359,12 @@ namespace MSHB.TsetmcReader.WinApp
             dg_InsData["Earning500", dgrow].Value = Math.Round(x.Earning500, 2);
             dg_InsData["Support", dgrow].Value = Math.Round(x.Support,2);
             dg_InsData["Resistance", dgrow].Value = Math.Round(x.Resistance,2);
-            if (_instrumentIds.ContainsKey(insCode))
+            if (TSETMC_Manager.InstrumentIds == null || TSETMC_Manager.InstrumentIds.Any() == false)
+                return;
+            if (TSETMC_Manager.InstrumentIds.ContainsKey(insCode))
             {
                 decimal price = 0;
-                if (_instrumentIds.TryGetValue(insCode, out price))
+                if (TSETMC_Manager.InstrumentIds.TryGetValue(insCode, out price))
                 {
                     if (price > 1)
                     {
@@ -434,10 +438,12 @@ namespace MSHB.TsetmcReader.WinApp
             dataGridView1["Earning5001", dgrow].Value = Math.Round(x.Earning500, 2);
             dataGridView1["Resistance1", dgrow].Value = Math.Round(x.Resistance, 6);
             dataGridView1["Support1", dgrow].Value = Math.Round(x.Support, 6);
-            if (_instrumentIds.ContainsKey(insCode))
+            if (TSETMC_Manager.InstrumentIds == null || TSETMC_Manager.InstrumentIds.Any() == false)
+                return;
+            if (TSETMC_Manager.InstrumentIds.ContainsKey(insCode))
             {
                 decimal price = 0;
-                if (_instrumentIds.TryGetValue(insCode, out price))
+                if (TSETMC_Manager.InstrumentIds.TryGetValue(insCode, out price))
                 {
                     if (price > 1)
                     {

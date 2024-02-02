@@ -39,10 +39,9 @@ namespace MSHB.TsetmcReader.WinApp
             this.tsmTime = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMinimize = new System.Windows.Forms.ToolStripMenuItem();
             this.type1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeDataBaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.historyFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GoldCoinPriceMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.CompairingPriceMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.WinsStateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,6 +67,7 @@ namespace MSHB.TsetmcReader.WinApp
             this.tsmTime,
             this.tsmMinimize,
             this.type1ToolStripMenuItem,
+            this.GoldCoinPriceMenu,
             this.WinsStateToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -121,18 +121,10 @@ namespace MSHB.TsetmcReader.WinApp
             // type1ToolStripMenuItem
             // 
             this.type1ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.removeDataBaseToolStripMenuItem,
-            this.loadExcelToolStripMenuItem,
-            this.loadFormToolStripMenuItem,
-            this.historyFormToolStripMenuItem});
+            this.loadExcelToolStripMenuItem});
             this.type1ToolStripMenuItem.Name = "type1ToolStripMenuItem";
-            this.type1ToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
-            this.type1ToolStripMenuItem.Text = "Type 1";
-            // 
-            // removeDataBaseToolStripMenuItem
-            // 
-            this.removeDataBaseToolStripMenuItem.Name = "removeDataBaseToolStripMenuItem";
-            this.removeDataBaseToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.type1ToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.type1ToolStripMenuItem.Text = "بورس";
             // 
             // loadExcelToolStripMenuItem
             // 
@@ -141,18 +133,20 @@ namespace MSHB.TsetmcReader.WinApp
             this.loadExcelToolStripMenuItem.Text = "بورس تهران";
             this.loadExcelToolStripMenuItem.Click += new System.EventHandler(this.loadExcelToolStripMenuItem_Click_1);
             // 
-            // loadFormToolStripMenuItem
+            // GoldCoinPriceMenu
             // 
-            this.loadFormToolStripMenuItem.Name = "loadFormToolStripMenuItem";
-            this.loadFormToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.loadFormToolStripMenuItem.Text = "Live Form";
-            this.loadFormToolStripMenuItem.Visible = false;
-            this.loadFormToolStripMenuItem.Click += new System.EventHandler(this.loadFormToolStripMenuItem_Click);
+            this.GoldCoinPriceMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CompairingPriceMenu});
+            this.GoldCoinPriceMenu.Name = "GoldCoinPriceMenu";
+            this.GoldCoinPriceMenu.Size = new System.Drawing.Size(83, 24);
+            this.GoldCoinPriceMenu.Text = "تمام سکه";
             // 
-            // historyFormToolStripMenuItem
+            // CompairingPriceMenu
             // 
-            this.historyFormToolStripMenuItem.Name = "historyFormToolStripMenuItem";
-            this.historyFormToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.CompairingPriceMenu.Name = "CompairingPriceMenu";
+            this.CompairingPriceMenu.Size = new System.Drawing.Size(224, 26);
+            this.CompairingPriceMenu.Text = "مقایسه قیمت‌ها";
+            this.CompairingPriceMenu.Click += new System.EventHandler(this.CompairingPriceMenu_Click);
             // 
             // WinsStateToolStripMenuItem
             // 
@@ -288,13 +282,12 @@ namespace MSHB.TsetmcReader.WinApp
         private System.Windows.Forms.ToolStripMenuItem CloseAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem type1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem removeDataBaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadExcelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadFormToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem historyFormToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutSoftwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem GoldCoinPriceMenu;
+        private System.Windows.Forms.ToolStripMenuItem CompairingPriceMenu;
     }
 }
 

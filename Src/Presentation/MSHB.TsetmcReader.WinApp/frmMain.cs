@@ -1,5 +1,7 @@
 ﻿using MSHB.TsetmcReader.WinApp.General_Forms;
 using MSHB.TsetmcReader.WinApp.Helper;
+using MSHB.TsetmcReader.WinApp.Practical_Forms;
+using MSHB.TsetmcReader.WinApp.StaticMember;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -13,6 +15,7 @@ namespace MSHB.TsetmcReader.WinApp
         public frmMain()
         {
             InitializeComponent();
+
         }
 
         private void tmClock_Tick(object sender, EventArgs e)
@@ -82,16 +85,21 @@ namespace MSHB.TsetmcReader.WinApp
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            frmType1Excel frmType1 = new frmType1Excel(true);
-            frmType1.MdiParent = this;
-            OpenWindows.Add(frmType1);
-            frmType1.Show();
+            TSETMC_Manager.Start();
         }
 
         private void aboutSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAbout frmAbout = new frmAbout();
             frmAbout.ShowDialog();
+        }
+
+        private void CompairingPriceMenu_Click(object sender, EventArgs e)
+        {
+            frmCoins frmCoin1 = new frmCoins();
+            frmCoin1.MdiParent = this;
+            OpenWindows.Add(frmCoin1);
+            frmCoin1.Show();
         }
     }
 }
