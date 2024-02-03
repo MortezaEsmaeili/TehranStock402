@@ -87,7 +87,7 @@ namespace MSHB.TsetmcReader.WinApp.Practical_Forms
 
         public string GetDiffPrice(string coin1, string coin2)
         {
-            return (_coins[coin1] - _coins[coin2]).ToString("N0");
+            return ((_coins[coin1] - _coins[coin2])*100).ToString("N0");
         }
 
         private string GetPersianName(string v)
