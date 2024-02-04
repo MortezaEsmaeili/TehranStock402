@@ -145,7 +145,7 @@ namespace MSHB.TsetmcReader.WinApp
                 return;
             timer1.Stop();
             var waitForm = new frmPleaseWait();
-     //esi       waitForm.Show(this);
+            waitForm.Show(this);
             try
             {
                 string selectedFolder = folderBrowserDialog1.SelectedPath;

@@ -15,6 +15,8 @@ namespace MSHB.TsetmcReader.WinApp.Practical_Forms
         //public const string SaderatCoin = "Saderat0310";
         //public const string AyandehCoin = "Ayandeh0411";
 
+        
+
         public const string RefahCoin   = "16255851958781000";
         public const string SamanCoin   = "31447590411939048";
         public const string MellatCoin  = "1626855364269097";
@@ -55,8 +57,13 @@ namespace MSHB.TsetmcReader.WinApp.Practical_Forms
                 return;
             foreach(var key in _coins.Keys)
             {
-                if(TSETMC_Manager.InstrumentIds.ContainsKey(key))
-                    _coins[key] = TSETMC_Manager.InstrumentIds[key];
+                if (TSETMC_Manager.InstrumentIds.ContainsKey(key))
+                {
+                    if(TSETMC_Manager.InstrumentIds[key]>0)
+                    {
+                        _coins[key] = TSETMC_Manager.InstrumentIds[key];
+                    }
+                }
             }
         }
         private void FillGrid()
@@ -64,6 +71,7 @@ namespace MSHB.TsetmcReader.WinApp.Practical_Forms
             try
             {
                 UpdateCoinPrices();
+                listView1.Items.Clear();
                 dataGridView1.Rows.Clear();
                 var coinInsIds = _coins.Keys.OrderBy(x=>x).ToList();
                 for (int i = 0; i < _coins.Count; i++)
@@ -76,8 +84,15 @@ namespace MSHB.TsetmcReader.WinApp.Practical_Forms
                     dataGridView1["Saderat0310", rowID].Value = GetDiffPrice(SaderatCoin, coinInsIds[i]);
                     dataGridView1["Ayandeh0411", rowID].Value = GetDiffPrice(AyandehCoin, coinInsIds[i]);
                     dataGridView1.Rows[rowID].Height = 120;
+
+                    ListViewItem item =
+                        new ListViewItem(GetPersianName(coinInsIds[i]));
+
+                    item.SubItems.Add((_coins[coinInsIds[i]] * 100).ToString("N0"));
+                    listView1.Items.Add(item);
                 }
                 dataGridView1.ScrollBars = ScrollBars.Both;
+                
             }
             catch (Exception ex)
             {

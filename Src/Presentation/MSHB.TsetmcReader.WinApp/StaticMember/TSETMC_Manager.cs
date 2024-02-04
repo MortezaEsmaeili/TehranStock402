@@ -66,11 +66,16 @@ namespace MSHB.TsetmcReader.WinApp.StaticMember
                     {
                         var data = item.Replace("'", "").Trim().Split(',').Select(x => x.Trim()).ToArray();
                         int dataLength = data.Length;
-                        if (dataLength > 20)
+                        if (dataLength > 7 && dataLength<10)
                         {
+                            if (data[0] == "16255851958781000")
+                            {
+                                int x = 0;
+                                x ++;
+                            }
                             try
                             {
-                                if (!decimal.TryParse(data[6], out decimal quantity))
+                                if (!decimal.TryParse(data[5], out decimal quantity))
                                 { quantity = 0; }
                                 if (!_instrumentIds.TryAdd(data[0], quantity))
                                     _instrumentIds.TryAdd(data[0], quantity);
