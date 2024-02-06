@@ -1,4 +1,5 @@
-﻿using MSHB.TsetmcReader.DTO.DataModel;
+﻿using CoinDTO;
+using MSHB.TsetmcReader.DTO.DataModel;
 using RestSharp;
 using System;
 using System.Collections.Concurrent;
@@ -16,6 +17,7 @@ namespace MSHB.TsetmcReader.WinApp.StaticMember
 
     public static class TSETMC_Manager
     {
+        private static List<String> coinList = new List<String>();
         private static Timer getData_timer;
         private static ConcurrentDictionary<string, decimal> _instrumentIds = new ConcurrentDictionary<string, decimal>();
         public static ConcurrentDictionary<string, decimal> InstrumentIds { get; private set; }
@@ -26,6 +28,12 @@ namespace MSHB.TsetmcReader.WinApp.StaticMember
         { }
         static TSETMC_Manager()
         {
+            coinList.Add("16255851958781005");
+            coinList.Add("31447590411939048");
+            coinList.Add("1626855364269097");
+            coinList.Add("71448561759885455");
+            coinList.Add("62180931969029505");
+            
             getData_timer = new Timer(GetDataFromTSETMC, null, 100, 4000);
         }
         private static void OnDataReadyEvent()
@@ -56,6 +64,7 @@ namespace MSHB.TsetmcReader.WinApp.StaticMember
                 string responseMessage = response.Content;
                 _instrumentIds.Clear();
                 await GetMainInsDataFromTSETMC();
+                await GetCoinInformation();
 
                 var logs = responseMessage.Trim().Split(';').Select(x => x.Trim()).ToArray();
                 if (logs != null && logs.Length > 0)
@@ -85,7 +94,24 @@ namespace MSHB.TsetmcReader.WinApp.StaticMember
                         }
                     });
                 }
-                lock(lockObject)
+                #region CoinData
+                foreach (var goldCoin in coinList)
+                {
+                    using (var client1 = new HttpClient())
+                    {
+                        string url = $"https://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceInfo/{goldCoin}";
+                        string result =
+                            await client1.GetStringAsync(url);
+                        Root root = JsonSerializer.Deserialize<Root>(result);
+                        if(root != null)
+                        {
+                            _instrumentIds.TryRemove(goldCoin, out _);
+                            _instrumentIds.TryAdd(goldCoin, root.closingPriceInfo.pDrCotVal);
+                        }
+                    }
+                }
+                #endregion
+                lock (lockObject)
                 {
                     InstrumentIds = new ConcurrentDictionary<string, decimal>( _instrumentIds);
                 }
@@ -97,6 +123,27 @@ namespace MSHB.TsetmcReader.WinApp.StaticMember
             #endregion
 
         }
+
+        private static async Task GetCoinInformation()
+        {
+            try
+            {
+                for (int i = 1; i < 3; i++)
+                {
+                    var client = new HttpClient();
+                    string result =
+                        await client.GetStringAsync($"https://cdn.tsetmc.com/api/MarketData/GetMarketOverview/{i}");
+                    RootMarket marketOverview = JsonSerializer.Deserialize<RootMarket>(result);
+                    if (!_instrumentIds.TryAdd($"{i}", (decimal)marketOverview.marketOverview.indexLastValue))
+                        _instrumentIds.TryAdd($"{i}", (decimal)marketOverview.marketOverview.indexLastValue);
+                }
+            }
+            catch (Exception ex)
+            {
+                //      MessageBox.Show(ex.Message);
+            }
+        }
+
         private static async Task GetMainInsDataFromTSETMC()
         {
             try
